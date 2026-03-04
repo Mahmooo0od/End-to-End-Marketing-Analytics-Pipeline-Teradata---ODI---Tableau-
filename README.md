@@ -1,52 +1,61 @@
 # 🚀 End-to-End Marketing Analytics Pipeline
-**Tech Stack:** `Oracle Data Integrator (ODI)` | `Teradata Vantage` | `Python (Jupyter)` | `CRM & Marketing APIs`
+**Tech Stack:** `ODI` | `Teradata` | `SQL` | `Python (Jupyter)` | `CRM & APIs`
 
 ## 📌 Project Overview
-This project demonstrates a complete **Enterprise Data Pipeline** that bridges the gap between fragmented marketing efforts and sales revenue. It automates the ingestion, transformation, and modeling of data from various sources (CRM, Ads APIs, Web Events) into a high-performance **Teradata Warehouse**.
+This project demonstrates an enterprise-grade data pipeline. It orchestrates data from **CRM** and **Marketing APIs**, moves it via **Oracle Data Integrator (ODI)**, and performs advanced modeling using **SQL** and **Python** inside **Teradata Vantage**.
 
-The primary goal is to provide a single source of truth for calculating critical business KPIs like **ROAS (Return on Ad Spend)** and **CPL (Cost Per Lead)**.
+The goal is to automate **ROAS** and **CPL** calculations by unifying disparate data silos.
 
 ---
 
-## 🏗️ Pipeline Architecture
+## 🏗️ Pipeline Architecture & Documentation
 
-### 1. Data Ingestion (Bronze Layer)
-* **Tools:** Oracle Data Integrator (ODI)
-* **Source Systems:** * **CRM Data:** Lead and Opportunity extracts (`.csv`).
-    * **Marketing APIs:** Daily Ad Spend from Google/Meta Ads.
-    * **Web Events:** User behavior tracking data.
-* **Process:** Using ODI Mappings and Models to load raw files into Teradata landing tables.
+### 1. Data Ingestion (ODI)
+Using **Oracle Data Integrator**, I built the ingestion layer to move raw data into the Teradata Bronze layer.
+* **Mappings:** Visual logic for data flow.
+* **Models:** Relational structures for Ads and CRM data.
 
-### 2. Data Transformation (Silver & Gold Layers)
-* **Tools:** Python, TeradataML, Jupyter Notebook
-* **Process:** * **Silver Layer:** Cleaning, handling nulls, and standardizing platform names via Python logic.
-    * **Gold Layer:** Joining Ad Spend with CRM conversions to create a unified marketing funnel table.
-    * **In-Database Processing:** Leveraged `teradataml` to execute heavy transformations directly within the Teradata engine.
+> **View ODI Work:** > [Check Mappings Screenshots](./Oracle%20Data%20Integrator/Mappings/)  
+> [Check Models Screenshots](./Oracle%20Data%20Integrator/Models/)
+
+
+
+---
+
+### 2. Data Transformation (SQL & Python)
+The transformation logic follows the **Medallion Architecture**. I used **SQL** for structural queries and **Python (teradataml)** for complex data cleansing.
+
+* **SQL Core:** Defining table schemas, primary keys, and relations in Teradata.
+* **Python Logic:** Handling string normalization, Null treatments, and final Gold table joins.
+
+> **View Scripts:** > [Jupyter Notebook (SQL/Python)](./Teradata/Sql_queries_in_Jupyter_python_interface.ipynb)
+
+
 
 ---
 
 ## 📂 Repository Structure
-* **📁 Data Source/**: Sample raw datasets representing CRM and API outputs.
+* **📁 Data Source/**: Raw CSV samples (CRM & API mocks).
 * **📁 Oracle Data Integrator/**: 
-    * `Mappings/`: Visual logic for data movement from source to bronze.
-    * `Models/`: Data structures defined in ODI.
-    * `PROJ_Marketing_Project.xml`: The complete ODI project export for portability.
+    * `Mappings/`: Screenshots of ETL flows.
+    * `Models/`: Screenshots of data definitions.
+    * `PROJ_Marketing_Project.xml`: Full ODI project export.
 * **📁 Teradata/**: 
-    * `Sql_queries_in_Jupyter_python_interface.ipynb`: The main transformation logic executed via Python.
+    * `Sql_queries_in_Jupyter_python_interface.ipynb`: Transformation logic.
 
 ---
 
 ## 🛠️ Key Technical Features
-* **Medallion Architecture:** Implemented a structured approach (Bronze → Silver → Gold) to ensure data quality.
-* **Complex Data Joining:** Resolved attribution challenges by mapping `UTM_Source` and `Platform` across disparate data silos.
-* **Scalability:** Designed with enterprise tools (ODI & Teradata) capable of handling millions of rows.
+* **Multi-Language Pipeline:** Seamless integration between **SQL** for data definition and **Python** for logic.
+* **Enterprise Ingestion:** Using **ODI** for robust, scalable data movement.
+* **Data Integrity:** Ensuring consistency between "Anonymous" Ad clicks and "Identified" CRM Leads.
 
 ---
 
 ## 📈 Next Steps
-* [ ] **Tableau Visualization:** Developing an interactive dashboard to visualize the Marketing Funnel and ROI (Coming Soon).
-* [ ] **Automation:** Scheduling the ODI Load Plans for real-time updates.
+* [ ] **Tableau Visualization:** (Work in Progress) Building the ROI & Attribution Dashboard.
+* [ ] **Load Plan Automation:** Scheduling the end-to-end flow.
 
 ---
 **Contact:**
-Mahmoud - [https://www.linkedin.com/in/mahmoud-mamdouh-324125220/]
+Mahmoud - [LinkedIn Profile Link]
