@@ -4,58 +4,49 @@
 ## 📌 Project Overview
 This project demonstrates an enterprise-grade data pipeline. It orchestrates data from **CRM** and **Marketing APIs**, moves it via **Oracle Data Integrator (ODI)**, and performs advanced modeling using **SQL** and **Python** inside **Teradata Vantage**.
 
-The goal is to automate **ROAS** and **CPL** calculations by unifying disparate data silos.
-
 ---
 
 ## 🏗️ Pipeline Architecture & Documentation
 
 ### 1. Data Ingestion (ODI)
-Using **Oracle Data Integrator**, I built the ingestion layer to move raw data into the Teradata Bronze layer.
-* **Mappings:** Visual logic for data flow.
-* **Models:** Relational structures for Ads and CRM data.
+I used **ODI** to build a robust ingestion layer. Below are the visual mappings and models that represent the data flow from source to the Bronze layer in Teradata.
 
-> **View ODI Work:** > [Check Mappings Screenshots](./Oracle%20Data%20Integrator/Mappings/)  
-> [Check Models Screenshots](./Oracle%20Data%20Integrator/Models/)
+#### **ODI Mapping Preview:**
+![ODI Mapping](./Oracle%20Data%20Integrator/Mappings/your_mapping_image_name.png)
+*(Replace 'your_mapping_image_name.png' with the actual file name in your folder)*
 
-
+#### **ODI Models:**
+![ODI Models](./Oracle%20Data%20Integrator/Models/your_model_image_name.png)
 
 ---
 
 ### 2. Data Transformation (SQL & Python)
-The transformation logic follows the **Medallion Architecture**. I used **SQL** for structural queries and **Python (teradataml)** for complex data cleansing.
+The transformation logic is documented in a Jupyter Notebook. I combined the power of **SQL** for table structures and **teradataml (Python)** for data cleaning and joining the Final Gold Layer.
 
-* **SQL Core:** Defining table schemas, primary keys, and relations in Teradata.
-* **Python Logic:** Handling string normalization, Null treatments, and final Gold table joins.
+#### **Transformation Logic (Jupyter):**
+![Jupyter Logic](./Teradata/your_jupyter_screenshot_name.png)
 
-> **View Scripts:** > [Jupyter Notebook (SQL/Python)](./Teradata/Sql_queries_in_Jupyter_python_interface.ipynb)
-
-
+> **View Full Script:** [Jupyter Notebook](./Teradata/Sql_queries_in_Jupyter_python_interface.ipynb)
 
 ---
 
 ## 📂 Repository Structure
-* **📁 Data Source/**: Raw CSV samples (CRM & API mocks).
-* **📁 Oracle Data Integrator/**: 
-    * `Mappings/`: Screenshots of ETL flows.
-    * `Models/`: Screenshots of data definitions.
-    * `PROJ_Marketing_Project.xml`: Full ODI project export.
-* **📁 Teradata/**: 
-    * `Sql_queries_in_Jupyter_python_interface.ipynb`: Transformation logic.
+* **📁 Data Source/**: Raw CSV samples.
+* **📁 Oracle Data Integrator/**: Contains exported `.xml` project and logic screenshots.
+* **📁 Teradata/**: Python/SQL transformation scripts.
 
 ---
 
 ## 🛠️ Key Technical Features
-* **Multi-Language Pipeline:** Seamless integration between **SQL** for data definition and **Python** for logic.
-* **Enterprise Ingestion:** Using **ODI** for robust, scalable data movement.
-* **Data Integrity:** Ensuring consistency between "Anonymous" Ad clicks and "Identified" CRM Leads.
+* **SQL & Python Hybrid:** Using SQL for DDL and Python for complex DML.
+* **In-Database Processing:** Transformations happen directly in Teradata for maximum performance.
+* **Enterprise Standards:** Full use of ODI for professional ETL orchestration.
 
 ---
 
 ## 📈 Next Steps
 * [ ] **Tableau Visualization:** (Work in Progress) Building the ROI & Attribution Dashboard.
-* [ ] **Load Plan Automation:** Scheduling the end-to-end flow.
 
 ---
 **Contact:**
-Mahmoud - [LinkedIn Profile Link]
+Mahmoud - [https://www.linkedin.com/in/mahmoud-mamdouh-324125220/]
