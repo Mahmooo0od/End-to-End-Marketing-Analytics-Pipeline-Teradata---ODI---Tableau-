@@ -12,34 +12,40 @@ This project demonstrates an enterprise-grade data pipeline. It orchestrates dat
 I used **ODI** to build a robust ingestion layer. Below are the visual mappings and models that represent the data flow from source to the Bronze layer in Teradata.
 
 #### **ODI Mapping Preview:**
-![ODI Mapping](./Oracle%20Data%20Integrator/Mappings/your_mapping_image_name.png)
-*(Replace 'your_mapping_image_name.png' with the actual file name in your folder)*
+![ODI Mapping](./Oracle%20Data%20Integrator/Mappings/Mapping.png)
 
-#### **ODI Models:**
-![ODI Models](./Oracle%20Data%20Integrator/Models/your_model_image_name.png)
+#### **Detailed Bronze Mappings:**
+| Ads Spend | CRM Leads | Web Events |
+|---|---|---|
+| ![Ads](./Oracle%20Data%20Integrator/Mappings/MAP_BRZ_ADS_SPEND.png) | ![Leads](./Oracle%20Data%20Integrator/Mappings/MAP_BRZ_CRM_CRM_LEADS.png) | ![Web](./Oracle%20Data%20Integrator/Mappings/MAP_BRZ_WEB_EVENTS.png) |
+
+#### **ODI Models Structure:**
+![Models](./Oracle%20Data%20Integrator/Models/Models.png)
+*Includes: Teradata Target Model, CRM Model, and Flat Files definitions.*
 
 ---
 
 ### 2. Data Transformation (SQL & Python)
 The transformation logic is documented in a Jupyter Notebook. I combined the power of **SQL** for table structures and **teradataml (Python)** for data cleaning and joining the Final Gold Layer.
 
-#### **Transformation Logic (Jupyter):**
-![Jupyter Logic](./Teradata/your_jupyter_screenshot_name.png)
-
+#### **In-Database Processing:**
 > **View Full Script:** [Jupyter Notebook](./Teradata/Sql_queries_in_Jupyter_python_interface.ipynb)
 
 ---
 
 ## 📂 Repository Structure
-* **📁 Data Source/**: Raw CSV samples.
-* **📁 Oracle Data Integrator/**: Contains exported `.xml` project and logic screenshots.
-* **📁 Teradata/**: Python/SQL transformation scripts.
+* **📁 Data Source/**: Raw CSV samples (`ads_spend_daily.csv`, `crm_leads.csv`, etc.).
+* **📁 Oracle Data Integrator/**: 
+    * `Mappings/`: Visual ETL flow screenshots.
+    * `Models/`: Data structure definitions.
+    * `PROJ_Marketing_Project.xml`: The complete exported ODI project.
+* **📁 Teradata/**: Python/SQL transformation scripts via Jupyter.
 
 ---
 
 ## 🛠️ Key Technical Features
 * **SQL & Python Hybrid:** Using SQL for DDL and Python for complex DML.
-* **In-Database Processing:** Transformations happen directly in Teradata for maximum performance.
+* **Medallion Architecture:** Implementing Bronze, Silver, and Gold layers for data quality.
 * **Enterprise Standards:** Full use of ODI for professional ETL orchestration.
 
 ---
